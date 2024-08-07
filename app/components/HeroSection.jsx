@@ -53,8 +53,8 @@ const HeroSection = () => {
               className="rounded-full  object-cover overflow-hidden "
               src="/images/himanshu.JPG "
               alt=""
-              width={300}
-              height={300}
+              width={400}
+              height={400}
             />
           </div>
         </div>
