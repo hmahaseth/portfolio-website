@@ -52,7 +52,7 @@ const HeroSection = () => {
             <Image
               className="rounded-full  object-cover overflow-hidden "
               src="/images/himanshu.JPG "
-              alt="himanshu image"
+              alt=""
               width={300}
               height={300}
             />
