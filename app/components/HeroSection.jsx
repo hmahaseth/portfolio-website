@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
+import img1 from "../../public/images/himanshu.JPG";
 
 const HeroSection = () => {
   return (
@@ -51,7 +52,7 @@ const HeroSection = () => {
           <div className="  ">
             <Image
               className="rounded-full  object-cover overflow-hidden "
-              src="/images/himanshu.JPG "
+              src={img1}
               alt=""
               width={400}
               height={400}
