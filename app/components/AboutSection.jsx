@@ -55,6 +55,7 @@ const AboutSection = () => {
         <Image
           className=" rounded-md"
           src="/images/car.jpg"
+          alt=""
           width={300}
           height={300}
         />
