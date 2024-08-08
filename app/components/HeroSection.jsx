@@ -32,10 +32,16 @@ const HeroSection = () => {
             </span>
           </h1>
           <p className="text-[#ADB7BE] text-base mb-6 text-lg lg:text-xl">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Necessitatibus similique ipsa tempora doloribus quisquam eius
-            laudantium animi cupiditate enim! Asperiores in tenetur sint
-            aliquam! Vel sed molestiae cumque nisi velit.
+            I’m a versatile professional with a passion for capturing and
+            creating engaging visual content. As a photographer, videographer,
+            and cinematographer, I specialize in bringing stories to life
+            through compelling imagery and dynamic video production. My eye for
+            detail and creative vision help me craft visually stunning content
+            that resonates with audiences. In addition to my work behind the
+            camera, I am also an adept web developer. I blend technical skills
+            with artistic flair to build engaging and user-friendly websites,
+            ensuring that every project not only looks great but performs
+            seamlessly.
           </p>
           <div>
             <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-200 text-white">
