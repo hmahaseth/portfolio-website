@@ -3,6 +3,42 @@ import React, { useTransition, useState } from "react";
 import Image from "next/image";
 import TabButton from "./TabButton";
 
+const TAB_DATA = [
+  {
+    title: "Skills",
+    id: "skills",
+    content: (
+      <ul>
+        <li>React</li>
+        <li>Js</li>
+        <li>Photography</li>
+        <li>Videography</li>
+      </ul>
+    ),
+  },
+  {
+    title: "Education",
+    id: "education",
+    content: (
+      <ul>
+        <li>Capital College And Research Center</li>
+      </ul>
+    ),
+  },
+  {
+    title: "Experience",
+    id: "experience",
+    content: (
+      <ul>
+        <li>React</li>
+        <li>Js</li>
+        <li>Photography</li>
+        <li>Videography</li>
+      </ul>
+    ),
+  },
+];
+
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
   const [isPending, startTransition] = useTransition();
@@ -34,7 +70,6 @@ const AboutSection = () => {
           </p>
           <div className="flex flex-row mt-8">
             <TabButton
-              
               selectTab={() => handleTabChange("skills")}
               active={tab === "skills"}
             >
@@ -54,6 +89,9 @@ const AboutSection = () => {
               {" "}
               Experience{" "}
             </TabButton>
+          </div>
+          <div className="mt-8">
+            {TAB_DATA.find((t) => t.id === tab).content}
           </div>
         </div>
       </div>
