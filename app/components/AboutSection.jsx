@@ -50,7 +50,7 @@ const AboutSection = () => {
   };
 
   return (
-    <section className="text-white p-8 max-w-screen-2xl">
+    <section id="about" className="text-white p-8 max-w-screen-2xl">
       <div className="flex flex-col md:flex-row space-x-4">
         <Image
           className=" rounded-md"
