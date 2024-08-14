@@ -31,7 +31,7 @@ const HeroSection = () => {
               />
             </span>
           </h1>
-          <p className="text-[#ADB7BE] text-base mb-6 text-lg lg:text-xl">
+          <p className="text-[#ADB7BE] text-base mb-6 text-lg lg:text-xl text-justify">
             I’m a versatile professional with a passion for capturing and
             creating engaging visual content. As a photographer, videographer,
             and cinematographer, I specialize in bringing stories to life
@@ -44,14 +44,29 @@ const HeroSection = () => {
             seamlessly.
           </p>
           <div>
-            <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-200 text-white">
-              Contact
-            </button>
-            <button className="px-1 py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-800 text-white   mt-3">
-              <span className="block bg-black hover:bg-slate-800 rounded-full px-5 py-2">
-                Follow on
-              </span>
-            </button>
+            {" "}
+            <a
+              href="https://www.linkedin.com/in/royal-empire/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+              <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-200 text-white">
+                Contact
+              </button>
+            </a>
+            <a
+              href="https://www.instagram.com/mahaseth_himanshu/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+              <button className="px-1 py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-800 text-white   mt-3">
+                <span className="block bg-black hover:bg-slate-800 rounded-full px-5 py-2">
+                  Follow on
+                </span>
+              </button>
+            </a>
           </div>
         </div>
         <div className=" col-span-5 place-self-center mt-4 lg:mt-0">
