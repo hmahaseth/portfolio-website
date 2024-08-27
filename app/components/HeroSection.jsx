@@ -56,7 +56,7 @@ const HeroSection = () => {
               </button>
             </a>
             <a
-              href="https://www.instagram.com/mahaseth_himanshu/"
+              href="https://www.instagram.com/himanshumahaseth_/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block"
