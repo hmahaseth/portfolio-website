@@ -21,7 +21,7 @@ const Footer = () => {
       <p>&copy; 2023 Himanshu Mahaseth. All rights reserved.</p>
       <div>
         <a
-          href="https://github.com/yourusername"
+          href="https://github.com/hmahaseth"
           style={linkStyle}
           target="_blank"
           rel="noopener noreferrer"
@@ -39,7 +39,7 @@ const Footer = () => {
           <i className="fab fa-twitter"></i>
         </a>
         <a
-          href="https://linkedin.com/in/yourusername"
+          href="https://www.linkedin.com/in/royal-empire/"
           style={linkStyle}
           target="_blank"
           rel="noopener noreferrer"
@@ -48,7 +48,7 @@ const Footer = () => {
           <i className="fab fa-linkedin-in"></i>
         </a>
         <a
-          href="https://instagram.com/yourusername"
+          href="https://www.instagram.com/himanshumahaseth_/"
           style={linkStyle}
           target="_blank"
           rel="noopener noreferrer"

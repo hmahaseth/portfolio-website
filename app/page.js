@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import AboutSection from "./components/AboutSection";
 import ProjectSection from "./components/ProjectSection";
 import Footer from "./components/Footer";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 export default function Home() {
   return (
