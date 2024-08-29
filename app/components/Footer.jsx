@@ -30,7 +30,7 @@ const Footer = () => {
           <i className="fab fa-github"></i>
         </a>
         <a
-          href="https://twitter.com/yourusername"
+          href="https://x.com/thegr8_himanshu"
           style={linkStyle}
           target="_blank"
           rel="noopener noreferrer"
