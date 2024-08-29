@@ -56,6 +56,24 @@ const Footer = () => {
         >
           <i className="fab fa-instagram"></i>
         </a>
+        <a
+          href="https://www.threads.net/@himanshumahaseth_"
+          style={linkStyle}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Threads"
+        >
+          <i className="fab fa-threads"></i>{" "}
+        </a>
+        <a
+          href="https://www.facebook.com/profile.php?id=100084222952118" // Replace with your Facebook profile URL
+          style={linkStyle}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          <i className="fab fa-facebook-f"></i>{" "}
+        </a>
       </div>
     </footer>
   );

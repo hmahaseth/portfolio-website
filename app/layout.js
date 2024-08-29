@@ -35,10 +35,7 @@ export default function RootLayout({ children }) {
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta
-          property="twitter:url"
-          content="https://himanshumahaseth.com.np"
-        />
+        <meta property="twitter:url" content="https://x.com/thegr8_himanshu" />
         <meta property="twitter:title" content="Himanshu Mahaseth" />
         <meta
           property="twitter:description"
