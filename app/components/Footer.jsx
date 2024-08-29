@@ -18,7 +18,7 @@ const linkStyle = {
 const Footer = () => {
   return (
     <footer style={footerStyle}>
-      <p>&copy; Himanshu Mahaseth. All rights reserved.</p>
+      <p>&copy; 2023 Himanshu Mahaseth. All rights reserved.</p>
       <div>
         <a
           href="https://github.com/yourusername"
