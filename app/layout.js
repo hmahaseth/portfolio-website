@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
         />
         <meta
           property="twitter:image"
-          content="https://himanshumahaseth.com.np"
+          content="https://x.com/thegr8_himanshu"
         />
 
         {/* Favicon and Apple Touch Icon */}
