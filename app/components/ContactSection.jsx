@@ -3,13 +3,8 @@ import React, { useState } from "react";
 import Thanks from "./Thanks";
 
 const ContactSection = () => {
+  // State to manage form submission status
   const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    setSubmitted(true);
-  };
 
   return (
     <section
@@ -31,10 +26,16 @@ const ContactSection = () => {
           </div>
           <div className="flex justify-center items-center">
             <form
+              action="https://formsubmit.co/contact@himanshumahaseth.com.np"
+              method="POST"
               className="w-full max-w-lg bg-black bg-opacity-70 p-8 rounded-lg shadow-glow group transition-shadow duration-300 hover:shadow-glowHover"
-              onSubmit={handleSubmit}
+              onSubmit={(e) => {
+                e.preventDefault();
+
+                setSubmitted(true);
+              }}
             >
-              <input type="hidden" name="_captcha" value="false"></input>
+              <input type="hidden" name="_captcha" value="false" />
               <h2 className="text-2xl font-semibold text-white mb-6">
                 Contact Me
               </h2>
@@ -92,11 +93,6 @@ const ContactSection = () => {
               >
                 Send
               </button>
-              <input
-                type="hidden"
-                name="_next"
-                value="https://himanshumahaseth.com.np"
-              ></input>
             </form>
           </div>
         </>
