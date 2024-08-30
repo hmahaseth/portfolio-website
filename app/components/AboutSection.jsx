@@ -54,7 +54,7 @@ const AboutSection = () => {
       <div className="flex flex-col md:flex-row space-x-4">
         <Image
           className=" rounded-md"
-          src="/images/car.jpg"
+          src="/images/about.jpg"
           alt=""
           width={300}
           height={300}
