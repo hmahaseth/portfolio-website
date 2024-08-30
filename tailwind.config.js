@@ -12,6 +12,15 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      boxShadow: {
+        // Define a custom glow effect
+        glow: "0 0 15px rgba(0, 255, 255, 0.7), 0 0 25px rgba(0, 255, 255, 0.5)",
+        glowInput: "0 0 10px rgba(0, 255, 255, 0.5)",
+        // Define hover glow effects
+        glowHover:
+          "0 0 20px rgba(0, 255, 255, 0.9), 0 0 30px rgba(0, 255, 255, 0.7)",
+        glowInputHover: "0 0 15px rgba(0, 255, 255, 0.7)",
+      },
     },
   },
   plugins: [],

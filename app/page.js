@@ -5,6 +5,7 @@ import AboutSection from "./components/AboutSection";
 import ProjectSection from "./components/ProjectSection";
 import Footer from "./components/Footer";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import ContactSection from "./components/ContactSection";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <HeroSection />
         <AboutSection />
         <ProjectSection />
+        <ContactSection />
       </div>
       <Footer />
     </main>
