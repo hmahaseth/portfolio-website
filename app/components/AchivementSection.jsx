@@ -21,6 +21,66 @@ const achievements = [
   { label: "Websites Created or Contributed", count: 10 },
 ];
 
+const AchievementItem = ({ achievement, animatedCounts, index }) => {
+  const [count, setCount] = useState(0);
+  const counts = animatedCounts[index] || [];
+
+  useEffect(() => {
+    if (counts.length > 0) {
+      let step = 0;
+      const interval = setInterval(() => {
+        if (step < counts.length) {
+          setCount(counts[step]);
+          step += 1;
+        } else {
+          clearInterval(interval);
+        }
+      }, 100); // Update every 100 ms
+
+      // Cleanup on unmount
+      return () => clearInterval(interval);
+    }
+  }, [counts]);
+
+  return (
+    <motion.div
+      key={index}
+      style={{
+        background: "#333",
+        borderRadius: "8px",
+        boxShadow: "0 2px 10px rgba(0, 0, 0, 0.3)",
+        padding: "1.5rem",
+        width: "200px",
+        textAlign: "center",
+        transition: "box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out",
+        cursor: "pointer",
+        transform: "scale(1)",
+      }}
+      whileHover={{
+        boxShadow: "0 0 15px rgba(0, 255, 255, 0.6)",
+        transform: "scale(1.05)",
+      }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.2, duration: 0.5 }}
+    >
+      <h3
+        style={{
+          fontSize: "2.5rem",
+          fontWeight: "bold",
+          color: "#00bcd4",
+          margin: "0",
+        }}
+      >
+        {count}+
+      </h3>
+      <p style={{ fontSize: "1rem", color: "#ddd", fontWeight: "bold" }}>
+        {achievement.label}
+      </p>
+    </motion.div>
+  );
+};
+
 const AchievementSection = () => {
   const [animatedCounts, setAnimatedCounts] = useState([]);
 
@@ -60,65 +120,14 @@ const AchievementSection = () => {
           gap: "2rem",
         }}
       >
-        {achievements.map((achievement, index) => {
-          const [count, setCount] = useState(0);
-          const counts = animatedCounts[index] || [];
-
-          useEffect(() => {
-            if (counts.length > 0) {
-              let step = 0;
-              const interval = setInterval(() => {
-                if (step < counts.length) {
-                  setCount(counts[step]);
-                  step += 1;
-                } else {
-                  clearInterval(interval);
-                }
-              }, 100); // Update every 100 ms
-            }
-          }, [counts]);
-
-          return (
-            <motion.div
-              key={index}
-              style={{
-                background: "#333",
-                borderRadius: "8px",
-                boxShadow: "0 2px 10px rgba(0, 0, 0, 0.3)",
-                padding: "1.5rem",
-                width: "200px",
-                textAlign: "center",
-                transition:
-                  "box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out",
-                cursor: "pointer",
-                transform: "scale(1)",
-              }}
-              whileHover={{
-                boxShadow: "0 0 15px rgba(0, 255, 255, 0.6)",
-                transform: "scale(1.05)",
-              }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2, duration: 0.5 }}
-            >
-              <h3
-                style={{
-                  fontSize: "2.5rem",
-                  fontWeight: "bold",
-                  color: "#00bcd4",
-                  margin: "0",
-                }}
-              >
-                {count}+
-              </h3>
-              <p
-                style={{ fontSize: "1rem", color: "#ddd", fontWeight: "bold" }}
-              >
-                {achievement.label}
-              </p>
-            </motion.div>
-          );
-        })}
+        {achievements.map((achievement, index) => (
+          <AchievementItem
+            key={index}
+            achievement={achievement}
+            animatedCounts={animatedCounts}
+            index={index}
+          />
+        ))}
       </div>
     </section>
   );
