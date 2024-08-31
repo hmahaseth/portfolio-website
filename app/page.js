@@ -10,6 +10,7 @@ import ContactSection from "./components/ContactSection";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import AchievementSection from "./components/AchivementSection";
 export default function Home() {
   useEffect(() => {
     AOS.init({
@@ -23,6 +24,7 @@ export default function Home() {
         {" "}
         {/* Added flex-1 to ensure it grows */}
         <HeroSection />
+        <AchievementSection />
         <AboutSection />
         <ProjectSection />
         <ContactSection />
