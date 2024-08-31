@@ -60,6 +60,7 @@ const AchievementSection = () => {
         }}
       >
         {achievements.map((achievement, index) => {
+          // Use the useCountUp hook directly within the map function
           const animatedCount = useCountUp(achievement.count, 2); // 2 seconds for animation
           return (
             <motion.div
