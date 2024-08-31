@@ -27,7 +27,7 @@ const projectsData = [
 
 const ProjectSection = () => {
   return (
-    <section id="projects" className="py-8">
+    <section data-aos="zoom-out-down" id="projects" className="py-8">
       <h2 className="text-center text-3xl md:text-5xl font-bold text-white mb-8">
         My Projects
       </h2>

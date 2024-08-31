@@ -44,16 +44,25 @@ const ContactSection = () => {
       ) : (
         <>
           <div className="flex flex-col justify-center">
-            <h5 className="text-3xl font-bold text-white mb-4">
+            <h5
+              data-aos="zoom-out-right"
+              className="text-3xl font-bold text-white mb-4"
+            >
               Let's Connect
             </h5>
-            <p className="text-gray-300 mb-8 max-w-md">
+            <p
+              data-aos="zoom-out-right"
+              className="text-gray-300 mb-8 max-w-md"
+            >
               I'm currently looking for new opportunities. Feel free to reach
               out to me!
             </p>
           </div>
           <div className="flex justify-center items-center">
             <form
+              data-aos="fade-down"
+              data-aos-easing="linear"
+              data-aos-duration="1500"
               onSubmit={handleSubmit}
               className="w-full max-w-lg bg-black bg-opacity-70 p-8 rounded-lg shadow-glow group transition-shadow duration-300 hover:shadow-glowHover"
             >

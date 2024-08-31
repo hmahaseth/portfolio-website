@@ -17,7 +17,11 @@ const linkStyle = {
 
 const Footer = () => {
   return (
-    <footer style={footerStyle}>
+    <footer
+      data-aos="fade-up"
+      data-aos-anchor-placement="top-bottom"
+      style={footerStyle}
+    >
       <p>&copy; 2023 Himanshu Mahaseth. All rights reserved.</p>
       <div>
         <a

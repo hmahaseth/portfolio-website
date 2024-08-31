@@ -44,7 +44,8 @@ const Thanks = () => {
   };
 
   return (
-    <div style={containerStyle}>
+    <div data-aos="fade-up"
+    data-aos-anchor-placement="top-center" style={containerStyle}>
       <div style={cardStyle}>
         <h1 style={headingStyle}>Thank You!</h1>
         <p style={messageStyle}>

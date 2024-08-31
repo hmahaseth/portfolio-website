@@ -9,10 +9,10 @@ const TAB_DATA = [
     id: "skills",
     content: (
       <ul>
-        <li>React</li>
-        <li>Js</li>
-        <li>Photography</li>
-        <li>Videography</li>
+        <li data-aos="fade-right">React</li>
+        <li data-aos="fade-right">Js</li>
+        <li data-aos="fade-right">Photography</li>
+        <li data-aos="fade-right">Videography</li>
       </ul>
     ),
   },
@@ -21,7 +21,7 @@ const TAB_DATA = [
     id: "education",
     content: (
       <ul>
-        <li>Capital College And Research Center</li>
+        <li data-aos="fade-right">Capital College And Research Center</li>
       </ul>
     ),
   },
@@ -30,10 +30,10 @@ const TAB_DATA = [
     id: "experience",
     content: (
       <ul>
-        <li>React</li>
-        <li>Js</li>
-        <li>Photography</li>
-        <li>Videography</li>
+        <li data-aos="fade-right">React</li>
+        <li data-aos="fade-right">Js</li>
+        <li data-aos="fade-right">Photography</li>
+        <li data-aos="fade-right">Videography</li>
       </ul>
     ),
   },
@@ -53,6 +53,7 @@ const AboutSection = () => {
     <section id="about" className="text-white p-8 max-w-screen-2xl">
       <div className="flex flex-col md:flex-row space-x-4">
         <Image
+          data-aos="fade-right"
           className=" object-cover rounded-md transition-shadow duration-300 hover:shadow-glow"
           src="/images/about.jpg"
           alt=""
@@ -60,8 +61,10 @@ const AboutSection = () => {
           height={300}
         />
         <div>
-          <h2 className="text-4xl font-bold text-white">About Me</h2>
-          <p className="text-base lg:text-lg">
+          <h2 data-aos="fade-left" className="text-4xl font-bold text-white">
+            About Me
+          </h2>
+          <p data-aos="fade-up-left" className="text-base lg:text-lg">
             In the digital realm, I transform ideas into interactive and
             user-friendly websites. With a keen eye for detail and a passion for
             visual aesthetics, I specialize in capturing breathtaking images
@@ -69,7 +72,7 @@ const AboutSection = () => {
             moments and turning them into visually stunning narratives. My work
             is deeply influenced by my love for adventure.
           </p>
-          <div className="flex flex-row mt-8">
+          <div data-aos="fade-up-left" className="flex flex-row mt-8">
             <TabButton
               selectTab={() => handleTabChange("skills")}
               active={tab === "skills"}
