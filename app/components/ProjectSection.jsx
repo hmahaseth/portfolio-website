@@ -27,11 +27,17 @@ const projectsData = [
 
 const ProjectSection = () => {
   return (
-    <section data-aos="zoom-out-down" id="projects" className="py-8">
-      <h2 className="text-center text-3xl md:text-5xl font-bold text-white mb-8">
+    <section id="projects" className="py-8">
+      <h2
+        data-aos="zoom-out-down"
+        className="text-center text-3xl md:text-5xl font-bold text-white mb-8"
+      >
         My Projects
       </h2>
-      <div className="flex flex-wrap justify-center gap-6">
+      <div
+        data-aos="zoom-in-up"
+        className="flex flex-wrap justify-center gap-6"
+      >
         {projectsData.map((project) => (
           <ProjectCard
             key={project.id}
