@@ -72,7 +72,7 @@ const HeroSection = () => {
         <div className=" col-span-5 place-self-center mt-4 lg:mt-0">
           <div className="  ">
             <Image
-              className="rounded-full  object-cover overflow-hidden "
+              className="rounded-full  object-cover overflow-hidden transition-shadow duration-300 hover:shadow-glow "
               src={img1}
               alt=""
               width={400}

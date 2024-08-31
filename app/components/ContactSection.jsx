@@ -3,8 +3,36 @@ import React, { useState } from "react";
 import Thanks from "./Thanks";
 
 const ContactSection = () => {
-  // State to manage form submission status
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const formData = new FormData(e.target);
+
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/contact@himanshumahaseth.com.np",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        alert("There was an issue with your submission. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("There was an error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <section
@@ -26,14 +54,8 @@ const ContactSection = () => {
           </div>
           <div className="flex justify-center items-center">
             <form
-              action="https://formsubmit.co/contact@himanshumahaseth.com.np"
-              method="POST"
+              onSubmit={handleSubmit}
               className="w-full max-w-lg bg-black bg-opacity-70 p-8 rounded-lg shadow-glow group transition-shadow duration-300 hover:shadow-glowHover"
-              onSubmit={(e) => {
-                e.preventDefault();
-
-                setSubmitted(true);
-              }}
             >
               <input type="hidden" name="_captcha" value="false" />
               <h2 className="text-2xl font-semibold text-white mb-6">
@@ -90,8 +112,9 @@ const ContactSection = () => {
               <button
                 type="submit"
                 className="w-full bg-black text-white py-3 px-4 rounded-lg hover:bg-blue-500 transition duration-300 shadow-glowHover"
+                disabled={loading}
               >
-                Send
+                {loading ? "Sending..." : "Send"}
               </button>
             </form>
           </div>

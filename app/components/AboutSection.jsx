@@ -53,7 +53,7 @@ const AboutSection = () => {
     <section id="about" className="text-white p-8 max-w-screen-2xl">
       <div className="flex flex-col md:flex-row space-x-4">
         <Image
-          className=" rounded-md"
+          className=" object-cover rounded-md transition-shadow duration-300 hover:shadow-glow"
           src="/images/about.jpg"
           alt=""
           width={300}
