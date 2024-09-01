@@ -22,7 +22,7 @@ const Footer = () => {
       data-aos-anchor-placement="top-bottom"
       style={footerStyle}
     >
-      <p>&copy; 2023 Himanshu Mahaseth. All rights reserved.</p>
+      <p>&copy; 2024 Himanshu Mahaseth. All rights reserved.</p>
       <div>
         <a
           href="https://github.com/hmahaseth"

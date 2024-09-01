@@ -9,10 +9,10 @@ const TAB_DATA = [
     id: "skills",
     content: (
       <ul>
-        <li data-aos="fade-right">React</li>
-        <li data-aos="fade-right">Js</li>
-        <li data-aos="fade-right">Photography</li>
-        <li data-aos="fade-right">Videography</li>
+        <li data-aos="fade-right">Nextjs</li>
+        <li data-aos="fade-right">HTML</li>
+        <li data-aos="fade-right">C language</li>
+        <li data-aos="fade-right">JavaScript</li>
       </ul>
     ),
   },
@@ -21,7 +21,7 @@ const TAB_DATA = [
     id: "education",
     content: (
       <ul>
-        <li data-aos="fade-right">Capital College And Research Center</li>
+        <li data-aos="fade-right">CCRC</li>
       </ul>
     ),
   },
@@ -30,8 +30,8 @@ const TAB_DATA = [
     id: "experience",
     content: (
       <ul>
-        <li data-aos="fade-right">React</li>
-        <li data-aos="fade-right">Js</li>
+        <li data-aos="fade-right">Reactjs</li>
+        <li data-aos="fade-right">Developer</li>
         <li data-aos="fade-right">Photography</li>
         <li data-aos="fade-right">Videography</li>
       </ul>
