@@ -1,8 +1,6 @@
-// components/AchievementSection.jsx
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-// Utility function to generate an animated count
 const animateCountUp = (endValue, duration = 2000) => {
   const steps = Math.ceil(duration / 100);
   const stepValue = endValue / steps;
@@ -35,9 +33,8 @@ const AchievementItem = ({ achievement, animatedCounts, index }) => {
         } else {
           clearInterval(interval);
         }
-      }, 100); // Update every 100 ms
+      }, 100);
 
-      // Cleanup on unmount
       return () => clearInterval(interval);
     }
   }, [counts]);
@@ -85,13 +82,12 @@ const AchievementSection = () => {
   const [animatedCounts, setAnimatedCounts] = useState([]);
 
   useEffect(() => {
-    const newAnimatedCounts = achievements.map(
-      (achievement) => animateCountUp(achievement.count, 2000) // 2000 ms for animation
+    const newAnimatedCounts = achievements.map((achievement) =>
+      animateCountUp(achievement.count, 2000)
     );
 
     setAnimatedCounts(newAnimatedCounts);
 
-    // Cleanup on unmount
     return () => {
       setAnimatedCounts([]);
     };

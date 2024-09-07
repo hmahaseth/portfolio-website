@@ -5,14 +5,14 @@ const footerStyle = {
   color: "white",
   padding: "1rem",
   textAlign: "center",
-  marginTop: "auto", // Ensures the footer sticks to the bottom
+  marginTop: "auto",
 };
 
 const linkStyle = {
   color: "white",
   margin: "0 10px",
   textDecoration: "none",
-  fontSize: "24px", // Adjust the size of the icons
+  fontSize: "24px",
 };
 
 const Footer = () => {
@@ -70,7 +70,7 @@ const Footer = () => {
           <i className="fab fa-threads"></i>{" "}
         </a>
         <a
-          href="https://www.facebook.com/profile.php?id=100084222952118" // Replace with your Facebook profile URL
+          href="https://www.facebook.com/himanshumahaseth8"
           style={linkStyle}
           target="_blank"
           rel="noopener noreferrer"
