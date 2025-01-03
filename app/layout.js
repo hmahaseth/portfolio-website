@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
         {/* SEO Meta Tags */}
         <meta
           name="keywords"
-          content="Himanshu Mahaseth, portfolio, web development, projects, achievements, technology, innovation"
+          content="Himanshu Mahaseth,Himanshu, Mahaseth, portfolio, web development, projects, achievements, technology, innovation"
         />
         <meta name="author" content="Himanshu Mahaseth" />
         <meta name="robots" content="index, follow" />
