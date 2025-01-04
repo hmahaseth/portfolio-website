@@ -14,8 +14,8 @@ const animateCountUp = (endValue, duration = 2000) => {
 };
 
 const achievements = [
-  { label: "Number of Photo Clicks", count: 3852 },
-  { label: "Cinematography Projects", count: 552 },
+  { label: "Photography Projects", count: 3852 },
+  { label: "Cinematography Projects", count: 559 },
   { label: "Websites Created or Contributed", count: 11 },
 ];
 
