@@ -22,6 +22,7 @@ const TAB_DATA = [
     content: (
       <ul>
         <li data-aos="fade-right">CCRC</li>
+        <li data-aos="fade-right">IOE ERC</li>
       </ul>
     ),
   },
