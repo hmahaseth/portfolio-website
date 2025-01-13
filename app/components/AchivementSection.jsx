@@ -1,17 +1,6 @@
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-
-const animateCountUp = (endValue, duration = 2000) => {
-  const steps = Math.ceil(duration / 100);
-  const stepValue = endValue / steps;
-  const counts = [];
-
-  for (let i = 0; i <= steps; i++) {
-    counts.push(Math.round(stepValue * i));
-  }
-
-  return counts;
-};
+import React, { useState } from "react";
+import CountUp from "react-countup";
+import ScrollTrigger from "react-scroll-trigger";
 
 const achievements = [
   { label: "Photography Projects", count: 3852 },
@@ -19,29 +8,9 @@ const achievements = [
   { label: "Websites Created or Contributed", count: 11 },
 ];
 
-const AchievementItem = ({ achievement, animatedCounts, index }) => {
-  const [count, setCount] = useState(0);
-  const counts = animatedCounts[index] || [];
-
-  useEffect(() => {
-    if (counts.length > 0) {
-      let step = 0;
-      const interval = setInterval(() => {
-        if (step < counts.length) {
-          setCount(counts[step]);
-          step += 1;
-        } else {
-          clearInterval(interval);
-        }
-      }, 100);
-
-      return () => clearInterval(interval);
-    }
-  }, [counts]);
-
+const AchievementItem = ({ achievement, triggerAnimation }) => {
   return (
-    <motion.div
-      key={index}
+    <div
       style={{
         background: "#333",
         borderRadius: "8px",
@@ -51,15 +20,15 @@ const AchievementItem = ({ achievement, animatedCounts, index }) => {
         textAlign: "center",
         transition: "box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out",
         cursor: "pointer",
-        transform: "scale(1)",
       }}
-      whileHover={{
-        boxShadow: "0 0 15px rgba(0, 255, 255, 0.6)",
-        transform: "scale(1.05)",
+      onMouseEnter={(e) => {
+        e.currentTarget.style.boxShadow = "0 0 15px rgba(0, 255, 255, 0.6)";
+        e.currentTarget.style.transform = "scale(1.05)";
       }}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.2, duration: 0.5 }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.3)";
+        e.currentTarget.style.transform = "scale(1)";
+      }}
     >
       <h3
         style={{
@@ -69,63 +38,59 @@ const AchievementItem = ({ achievement, animatedCounts, index }) => {
           margin: "0",
         }}
       >
-        {count}+
+        {triggerAnimation ? (
+          <CountUp start={0} end={achievement.count} duration={2} />
+        ) : (
+          0
+        )}
+        +
       </h3>
       <p style={{ fontSize: "1rem", color: "#ddd", fontWeight: "bold" }}>
         {achievement.label}
       </p>
-    </motion.div>
+    </div>
   );
 };
 
 const AchievementSection = () => {
-  const [animatedCounts, setAnimatedCounts] = useState([]);
-
-  useEffect(() => {
-    const newAnimatedCounts = achievements.map((achievement) =>
-      animateCountUp(achievement.count, 2000)
-    );
-
-    setAnimatedCounts(newAnimatedCounts);
-
-    return () => {
-      setAnimatedCounts([]);
-    };
-  }, []);
+  const [triggerAnimation, setTriggerAnimation] = useState(false);
 
   return (
-    <section
-      style={{
-        padding: "2rem",
-        backgroundColor: "black",
-        color: "white",
-        textAlign: "center",
-      }}
+    <ScrollTrigger
+      onEnter={() => setTriggerAnimation(true)}
+      onExit={() => setTriggerAnimation(false)}
     >
-      <h2
-        data-aos="fade-down"
-        style={{ fontSize: "2rem", marginBottom: "1.5rem", color: "#f5f5f5" }}
-      >
-        Achievements
-      </h2>
-      <div
+      <section
         style={{
-          display: "flex",
-          justifyContent: "center",
-          flexWrap: "wrap",
-          gap: "2rem",
+          padding: "2rem",
+          backgroundColor: "black",
+          color: "white",
+          textAlign: "center",
         }}
       >
-        {achievements.map((achievement, index) => (
-          <AchievementItem
-            key={index}
-            achievement={achievement}
-            animatedCounts={animatedCounts}
-            index={index}
-          />
-        ))}
-      </div>
-    </section>
+        <h2
+          style={{ fontSize: "2rem", marginBottom: "1.5rem", color: "#f5f5f5" }}
+        >
+          Achievements
+        </h2>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            flexWrap: "wrap",
+            gap: "2rem",
+          }}
+        >
+          {achievements.map((achievement, index) => (
+            <AchievementItem
+              key={index}
+              achievement={achievement}
+              triggerAnimation={triggerAnimation}
+            />
+          ))}
+        </div>
+      </section>
+    </ScrollTrigger>
   );
 };
 
