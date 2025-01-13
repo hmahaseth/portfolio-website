@@ -24,7 +24,9 @@ export default function Home() {
         {" "}
         {/* Added flex-1 to ensure it grows */}
         <HeroSection />
-        <AchievementSection />
+        <div data-aos="flip-up">
+          <AchievementSection />
+        </div>
         <AboutSection />
         <ProjectSection />
         <ContactSection />
