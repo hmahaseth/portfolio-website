@@ -26,7 +26,7 @@ const Footer = () => {
       <div>
         <a
           href="https://github.com/hmahaseth"
-          style={linkStyle}
+          className="social-icon github"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
@@ -35,7 +35,7 @@ const Footer = () => {
         </a>
         <a
           href="https://x.com/thegr8_himanshu"
-          style={linkStyle}
+          className="social-icon twitter"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Twitter"
@@ -44,7 +44,7 @@ const Footer = () => {
         </a>
         <a
           href="https://www.linkedin.com/in/royal-empire/"
-          style={linkStyle}
+          className="social-icon linkedin"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
@@ -53,30 +53,22 @@ const Footer = () => {
         </a>
         <a
           href="https://www.instagram.com/himanshumahaseth_/"
-          style={linkStyle}
+          className="social-icon instagram"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Instagram"
         >
           <i className="fab fa-instagram"></i>
         </a>
-        <a
-          href="https://www.threads.net/@himanshumahaseth_"
-          style={linkStyle}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Threads"
-        >
-          <i className="fab fa-threads"></i>{" "}
-        </a>
+
         <a
           href="https://www.facebook.com/himanshumahaseth8"
-          style={linkStyle}
+          className="social-icon facebook"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Facebook"
         >
-          <i className="fab fa-facebook-f"></i>{" "}
+          <i className="fab fa-facebook-f"></i>
         </a>
       </div>
     </footer>
