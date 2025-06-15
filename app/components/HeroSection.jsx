@@ -21,7 +21,7 @@ const HeroSection = () => {
                   // Same substring at the start will only be typed out once, initially
                   "Himanshu",
                   1000, // wait 1s before re
-                  "Editor",
+                  "Student",
                   1000,
                   "Developer",
                   1000,
