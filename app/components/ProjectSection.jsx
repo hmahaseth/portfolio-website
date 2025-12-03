@@ -34,10 +34,7 @@ const ProjectSection = () => {
       >
         My Projects
       </h2>
-      <div
-        data-aos="zoom-in-up"
-        className="flex flex-wrap justify-center gap-6"
-      >
+      <div className="flex flex-wrap justify-center gap-6">
         {projectsData.map((project) => (
           <ProjectCard
             key={project.id}
