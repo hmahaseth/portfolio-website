@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import img1 from "../../public/images/himanshu.JPG";
 
-const wordsSequence = ["Himanshu", "a Student", "a Developer", "a Photographer"];
+const wordsSequence = [" Himanshu", " Student", " Developer", " Photographer"];
 const scrambleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
 const ScrambleText = ({ text }) => {
@@ -72,6 +72,7 @@ const HeroSection = () => {
               className="text-white mb-6 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tighter uppercase font-mono inline-flex flex-wrap items-baseline justify-center md:justify-start gap-x-3 w-full leading-none"
             >
               <span className="leading-none">Hi I'm</span>
+              <br/>
               
               {/* Dynamic Text Container aligned cleanly with baseline rows */}
               <span className="inline-flex relative normal-case font-sans font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-zinc-300 to-zinc-500 text-center md:text-left min-w-[280px] lg:min-w-[340px] items-baseline self-baseline leading-none">

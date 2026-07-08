@@ -50,10 +50,10 @@ export default function Home() {
           quality={75}             // Sharp compression to save mobile bandwidth data
           sizes="100vw"            // Auto-generates responsive source paths for mobile, tablet, and desktop
           placeholder="blur"       // Instant blurry layout placeholder while image hydrates
-          className="object-cover object-center opacity-50 brightness-[0.50] contrast-100 transition-opacity duration-500"
+          className="object-cover object-center opacity-50 brightness-[0.80] contrast-100 transition-opacity duration-500"
         />
         {/* Deep ambient dark gradient protection overlay ensuring code elements stay perfectly legible */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-zinc-950" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-zinc-650" />
       </div>
 
       {/* 🛡️ CONDITION WRAPPER: If submitted, wipes everything and shows only the Thanks Card */}
