@@ -22,6 +22,11 @@ const navLinks = [
     title: "Contacts",
     path: "#contacts",
   },
+  {
+    id: 4,
+    title: "Studio",
+    path: "/studio", // 🚀 Points to your new Studio page route
+  },
 ];
 
 const Navbar = () => {
@@ -30,7 +35,6 @@ const Navbar = () => {
   return (
     <nav
       data-aos="fade-down"
-      /* FIXED: Replaced harsh solid background with floating translucent iOS frosted layout */
       className="fixed top-4 left-4 right-4 z-50 mx-auto max-w-screen-2xl bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] rounded-2xl shadow-[0_20px_50px_-15px_rgba(0,0,0,0.65)] transition-all duration-300"
     >
       <div className="flex flex-wrap items-center justify-between mx-auto px-6 py-3">
@@ -44,7 +48,7 @@ const Navbar = () => {
             className="overflow-hidden rounded-xl filter contrast-[1.05] brightness-95"
             src="/images/hm.png"
             alt="HM Logo"
-            height={55} // Slicker, more balanced dimensions for header space scaling
+            height={55}
             width={55}
             priority
           />
@@ -69,14 +73,17 @@ const Navbar = () => {
           )}
         </div>
 
-
         {/* Desktop Anchor Link Items Menu */}
         <div className="menu hidden md:block md:w-auto" id="navbar">
-          <ul className="flex p-0 md:flex-row md:space-x-10 mt-0 font-sans tracking-wide text-sm font-semibold uppercase">
+          <ul className="flex p-0 md:flex-row md:space-x-10 mt-0 font-sans tracking-wide text-sm font-semibold uppercase items-center">
             {navLinks.map((link) => (
               <li 
                 key={link.id} 
-                className="transition-all duration-300 hover:text-white text-zinc-400 hover:translate-y-[-1px]"
+                className={`transition-all duration-300 ${
+                  link.title === "Studio" 
+                    ? "bg-white/[0.06] border border-white/10 px-4 py-1.5 rounded-xl text-[#00bcd4] hover:bg-white/10 hover:border-white/20 hover:scale-105 active:scale-95" 
+                    : "text-zinc-400 hover:text-white hover:translate-y-[-1px]"
+                }`}
               >
                 <NavLink href={link.path} title={link.title} />
               </li>
@@ -86,13 +93,11 @@ const Navbar = () => {
       </div>
 
       {/* Responsive Floating Drawer Overlay Layer */}
-      {/*  NEW WORKING WAY */}
-{navbarOpen ? (
-  <div className="md:hidden border-t border-white/[0.06] bg-black/40 backdrop-blur-xl rounded-b-2xl overflow-hidden px-6 py-4 animate-fadeIn">
-    <MenuOverlay links={navLinks} />
-  </div>
-) : null}
-
+      {navbarOpen ? (
+        <div className="md:hidden border-t border-white/[0.06] bg-black/40 backdrop-blur-xl rounded-b-2xl overflow-hidden px-6 py-4 animate-fadeIn">
+          <MenuOverlay links={navLinks} />
+        </div>
+      ) : null}
     </nav>
   );
 };
