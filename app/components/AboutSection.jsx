@@ -3,16 +3,44 @@ import React, { useTransition, useState } from "react";
 import Image from "next/image";
 import TabButton from "./TabButton";
 
+// Copy and replace the TAB_DATA array at the top of your AboutSection.jsx file
 const TAB_DATA = [
   {
     title: "Skills",
     id: "skills",
     content: (
-      <ul>
-        <li data-aos="fade-right">Nextjs</li>
-        <li data-aos="fade-right">HTML</li>
-        <li data-aos="fade-right">C language</li>
-        <li data-aos="fade-right">JavaScript</li>
+      <ul className="grid grid-cols-2 gap-y-4 gap-x-4 pl-1 text-zinc-300 font-medium">
+        {/* Next.js Skill Node - FIXED: Removed text, displays just the logo */}
+        <li data-aos="fade-right" className="flex items-center gap-2.5 transition-all duration-200">
+          <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-white/5 border border-white/10 text-white shrink-0 overflow-hidden relative p-1 hover:bg-white/10 hover:border-white/20 transition-all duration-200">
+            <Image 
+              src="/images/Nextjs-Logo-Vector.svg-.png" 
+              alt="Next.js Logo" 
+              width={20} 
+              height={20}
+              className="object-contain filter brightness-100 invert" // Inverts if the logo is black so it pops on dark background
+            />
+          </div>
+          <span className="tracking-wide">NEXTjs</span>
+        </li>
+        <li data-aos="fade-right" className="flex items-center gap-2.5 hover:text-[#339933] transition-colors duration-200">
+          <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#339933]/5 border border-[#339933]/20 text-[#339933] text-base shrink-0">
+            <i className="fab fa-node-js"></i>
+          </div>
+          <span className="tracking-wide text-zinc-300 hover:text-zinc-100">Nodejs</span>
+        </li>
+        <li data-aos="fade-right" className="flex items-center gap-2.5 hover:text-[#00bcd4] transition-colors duration-200">
+          <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-white/5 border border-white/10 text-zinc-400 shrink-0">
+            <i className="fas fa-video"></i>
+          </div>
+          <span className="tracking-wide">Video Editing</span>
+        </li>
+        <li data-aos="fade-right" className="flex items-center gap-2.5 hover:text-[#00bcd4] transition-colors duration-200">
+          <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-white/5 border border-white/10 text-zinc-400 shrink-0">
+            <i className="fas fa-palette"></i>
+          </div>
+          <span className="tracking-wide">Graphics Designing</span>
+        </li>
       </ul>
     ),
   },
@@ -20,9 +48,19 @@ const TAB_DATA = [
     title: "Education",
     id: "education",
     content: (
-      <ul>
-        <li data-aos="fade-right">CCRC</li>
-        <li data-aos="fade-right">IOE ERC</li>
+      <ul className="space-y-4 pl-1 text-zinc-300 font-medium">
+        <li data-aos="fade-right" className="flex items-center gap-3">
+          <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#00bcd4]/10 border border-[#00bcd4]/20 text-[#00bcd4] shrink-0">
+            <i className="fas fa-graduation-cap text-xs"></i>
+          </div>
+          <span>+2 From CCRC</span>
+        </li>
+        <li data-aos="fade-right" className="flex items-center gap-3">
+          <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#00bcd4]/10 border border-[#00bcd4]/20 text-[#00bcd4] shrink-0">
+            <i className="fas fa-university text-xs"></i>
+          </div>
+          <span>Engineering from IOE ERC</span>
+        </li>
       </ul>
     ),
   },
@@ -30,15 +68,37 @@ const TAB_DATA = [
     title: "Experience",
     id: "experience",
     content: (
-      <ul>
-        <li data-aos="fade-right">Reactjs</li>
-        <li data-aos="fade-right">Developer</li>
-        <li data-aos="fade-right">Photography</li>
-        <li data-aos="fade-right">Videography</li>
+      <ul className="grid grid-cols-2 gap-y-4 gap-x-4 pl-1 text-zinc-300 font-medium">
+        <li data-aos="fade-right" className="flex items-center gap-2.5">
+          <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-white/5 border border-white/10 text-zinc-400 shrink-0">
+            <i className="fas fa-code text-xs"></i>
+          </div>
+          <span>Web Development</span>
+        </li>
+        <li data-aos="fade-right" className="flex items-center gap-2.5">
+          <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-white/5 border border-white/10 text-zinc-400 shrink-0">
+            <i className="fas fa-film text-xs"></i>
+          </div>
+          <span>Cinematography</span>
+        </li>
+        <li data-aos="fade-right" className="flex items-center gap-2.5">
+          <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-white/5 border border-white/10 text-zinc-400 shrink-0">
+            <i className="fas fa-camera text-xs"></i>
+          </div>
+          <span>Photography</span>
+        </li>
+        <li data-aos="fade-right" className="flex items-center gap-2.5">
+          <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-white/5 border border-white/10 text-zinc-400 shrink-0">
+            <i className="fas fa-video text-xs"></i>
+          </div>
+          <span>Videography</span>
+        </li>
       </ul>
     ),
   },
 ];
+
+
 
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
@@ -51,53 +111,67 @@ const AboutSection = () => {
   };
 
   return (
-    <section id="about" className="text-white p-8 max-w-screen-2xl">
-      <div className="flex flex-col md:flex-row space-x-4">
-        <Image
-          data-aos="fade-right"
-          className=" object-cover rounded-md transition-shadow duration-300 hover:shadow-glow"
-          src="/images/about.jpg"
-          alt=""
-          width={300}
-          height={300}
-        />
-        <div>
-          <h2 data-aos="fade-left" className="text-4xl font-bold text-white">
-            About Me
-          </h2>
-          <p data-aos="fade-up-left" className="text-base lg:text-lg">
-            In the digital realm, I transform ideas into interactive and
-            user-friendly websites. With a keen eye for detail and a passion for
-            visual aesthetics, I specialize in capturing breathtaking images
-            that tell a story.I thrive on capturing life's most compelling
-            moments and turning them into visually stunning narratives. My work
-            is deeply influenced by my love for adventure.
-          </p>
-          <div data-aos="fade-up-left" className="flex flex-row mt-8">
-            <TabButton
-              selectTab={() => handleTabChange("skills")}
-              active={tab === "skills"}
-            >
-              Skills
-            </TabButton>
-            <TabButton
-              selectTab={() => handleTabChange("education")}
-              active={tab === "education"}
-            >
-              {" "}
-              Education{" "}
-            </TabButton>
-            <TabButton
-              selectTab={() => handleTabChange("experience")}
-              active={tab === "experience"}
-            >
-              {" "}
-              Experience{" "}
-            </TabButton>
+    <section id="about" className="text-white max-w-screen-2xl mx-auto py-4">
+      <div className="w-full bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] rounded-3xl p-6 sm:p-10 lg:p-14 shadow-[0_24px_60px_-15px_rgba(0,0,0,0.7)]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-16 items-start">
+          
+          {/* Left Column: Fixed, Contained Image Wrapper */}
+          <div className="md:col-span-5 w-full flex justify-center self-start">
+            <div className="relative w-full max-w-[340px] md:max-w-none aspect-square rounded-2xl p-1 bg-gradient-to-b from-white/10 to-transparent shadow-[0_0_50px_rgba(255,255,255,0.05)] overflow-hidden">
+              <Image
+                data-aos="fade-right"
+                className="rounded-xl object-cover object-center transition-all duration-300 hover:scale-[1.02]"
+                src="/images/about.jpg"
+                alt="About Me Portrait Image"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                priority
+              />
+            </div>
           </div>
-          <div className="mt-8">
-            {TAB_DATA.find((t) => t.id === tab).content}
+
+          {/* Right Column: Tabbed Content Block */}
+          <div className="md:col-span-7 flex flex-col justify-start">
+            <h2 
+              data-aos="fade-left" 
+              className="text-white mb-4 text-3xl sm:text-4xl font-black tracking-tighter uppercase font-mono"
+            >
+              About Me
+            </h2>
+            
+            <p 
+              data-aos="fade-up-left" 
+              className="text-zinc-400 text-sm sm:text-base lg:text-lg mb-8 leading-relaxed tracking-wide text-justify font-sans"
+            >
+              In the digital realm, I transform ideas into interactive and
+              user-friendly websites. With a keen eye for detail and a passion for
+              visual aesthetics, I specialize in capturing breathtaking images
+              that tell a story. I thrive on capturing life's most compelling
+              moments and turning them into visually stunning narratives. My work
+              is deeply influenced by my love for adventure.
+            </p>
+            
+            {/* iOS Glass Tab Switch Track Frame */}
+            <div 
+              data-aos="fade-up-left" 
+              className="flex flex-row p-1 bg-white/[0.02] border border-white/[0.05] rounded-xl mb-6 max-w-fit"
+            >
+              <TabButton selectTab={() => handleTabChange("skills")} active={tab === "skills"}>
+                Skills
+              </TabButton>
+              <TabButton selectTab={() => handleTabChange("education")} active={tab === "education"}>
+                Education
+              </TabButton>
+              <TabButton selectTab={() => handleTabChange("experience")} active={tab === "experience"}>
+                Experience
+              </TabButton>
+            </div>
+
+            <div className="min-h-[160px] p-5 rounded-2xl bg-white/[0.01] border border-white/[0.03]">
+              {TAB_DATA.find((t) => t.id === tab).content}
+            </div>
           </div>
+
         </div>
       </div>
     </section>

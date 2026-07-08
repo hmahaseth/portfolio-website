@@ -68,3 +68,20 @@ body {
 .social-icon:hover {
   transform: scale(1.2);
 }
+
+@keyframes wipeLoop {
+  0%, 25% { transform: translateY(0%); }
+  33%, 58% { transform: translateY(-25%); }
+  66%, 91% { transform: translateY(-50%); }
+  100% { transform: translateY(-75%); }
+}
+
+.animate-wipe {
+  animation: wipeLoop 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* FIXED: Tells the browser window to reserve 110px of safety padding at the top when scrolling to anchors */
+  scroll-padding-top: 110px; 
+}

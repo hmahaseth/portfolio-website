@@ -1,9 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import Thanks from "./Thanks";
 
-const ContactSection = () => {
-  const [submitted, setSubmitted] = useState(false);
+// FIXED: Added the 'onGlobalSubmit' prop destructuring to sync with app/page.js state machine logic
+const ContactSection = ({ onGlobalSubmit }) => {
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -22,7 +21,10 @@ const ContactSection = () => {
       );
 
       if (response.ok) {
-        setSubmitted(true);
+        // FIXED: Invokes the global full-screen state layout layer switch instead of changing a local toggle hook
+        if (onGlobalSubmit) {
+          onGlobalSubmit();
+        }
       } else {
         alert("There was an issue with your submission. Please try again.");
       }
@@ -37,98 +39,105 @@ const ContactSection = () => {
   return (
     <section
       id="contacts"
-      className="grid md:grid-cols-2 gap-8 my-12 py-24 px-6 md:px-12"
+      className="grid grid-cols-1 md:grid-cols-12 gap-10 my-12 py-16 px-4 sm:px-6 md:px-12 items-center max-w-screen-2xl mx-auto"
     >
-      {submitted ? (
-        <Thanks />
-      ) : (
-        <>
-          <div className="flex flex-col justify-center">
-            <h5
-              data-aos="zoom-out-right"
-              className="text-3xl font-bold text-white mb-4"
+      {/* Left Column: Context Text Block */}
+      <div className="md:col-span-5 flex flex-col justify-center text-center md:text-left">
+        <h5
+          data-aos="zoom-out-right"
+          className="text-white mb-4 text-3xl sm:text-4xl font-black tracking-tighter uppercase font-mono"
+        >
+          Let's Connect
+        </h5>
+        <p
+          data-aos="zoom-out-right"
+          className="text-zinc-400 text-sm sm:text-base leading-relaxed tracking-wide font-sans max-w-md mx-auto md:mx-0 text-justify"
+        >
+          I'm currently looking for new opportunities. Feel free to reach
+          out to me! Whether you have a question, want to discuss a new web project, 
+          or need high-end photography media production, my inbox is always open.
+        </p>
+      </div>
+
+      {/* Right Column: Premium iOS Glass Form Card */}
+      <div className="md:col-span-7 flex justify-center items-center w-full">
+        <form
+          data-aos="fade-down"
+          data-aos-easing="linear"
+          data-aos-duration="1000"
+          onSubmit={handleSubmit}
+          className="w-full bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] p-6 sm:p-10 rounded-3xl shadow-[0_24px_60px_-15px_rgba(0,0,0,0.7)] group transition-all duration-300 hover:border-white/[0.15]"
+        >
+          <input type="hidden" name="_captcha" value="false" />
+          
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 font-mono tracking-tight uppercase">
+            Contact Me
+          </h2>
+          
+          {/* Name Input Box */}
+          <div className="mb-5">
+            <label
+              htmlFor="name"
+              className="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2 font-sans"
             >
-              Let's Connect
-            </h5>
-            <p
-              data-aos="zoom-out-right"
-              className="text-gray-300 mb-8 max-w-md"
-            >
-              I'm currently looking for new opportunities. Feel free to reach
-              out to me!
-            </p>
+              Name
+            </label>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              required
+              className="w-full p-3.5 bg-white/[0.02] border border-white/10 rounded-xl text-white placeholder-zinc-500 font-sans text-sm tracking-wide transition-all duration-300 focus:outline-none focus:bg-white/[0.04] focus:border-white/30 focus:shadow-[0_0_20px_rgba(255,255,255,0.05)]"
+              placeholder="Your Name"
+            />
           </div>
-          <div className="flex justify-center items-center">
-            <form
-              data-aos="fade-down"
-              data-aos-easing="linear"
-              data-aos-duration="1500"
-              onSubmit={handleSubmit}
-              className="w-full max-w-lg bg-black bg-opacity-70 p-8 rounded-lg shadow-glow group transition-shadow duration-300 hover:shadow-glowHover"
+
+          {/* Email Input Box */}
+          <div className="mb-5">
+            <label
+              htmlFor="email"
+              className="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2 font-sans"
             >
-              <input type="hidden" name="_captcha" value="false" />
-              <h2 className="text-2xl font-semibold text-white mb-6">
-                Contact Me
-              </h2>
-              <div className="mb-4">
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-200 mb-2"
-                >
-                  Name
-                </label>
-                <input
-                  id="name"
-                  type="text"
-                  name="name"
-                  required
-                  className="w-full p-3 border border-gray-600 bg-transparent text-white placeholder-gray-400 rounded-lg shadow-glowInput transition-shadow duration-300 group-hover:shadow-glowInputHover focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Your Name"
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-200 mb-2"
-                >
-                  Email
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  name="email"
-                  required
-                  className="w-full p-3 border border-gray-600 bg-transparent text-white placeholder-gray-400 rounded-lg shadow-glowInput transition-shadow duration-300 group-hover:shadow-glowInputHover focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Your Email"
-                />
-              </div>
-              <div className="mb-6">
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-gray-200 mb-2"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  className="w-full p-3 border border-gray-600 bg-transparent text-white placeholder-gray-400 rounded-lg shadow-glowInput transition-shadow duration-300 group-hover:shadow-glowInputHover focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  rows="4"
-                  placeholder="Your Message"
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-black text-white py-3 px-4 rounded-lg hover:bg-blue-500 transition duration-300 shadow-glowHover"
-                disabled={loading}
-              >
-                {loading ? "Sending..." : "Send"}
-              </button>
-            </form>
+              Email Address
+            </label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              required
+              className="w-full p-3.5 bg-white/[0.02] border border-white/10 rounded-xl text-white placeholder-zinc-500 font-sans text-sm tracking-wide transition-all duration-300 focus:outline-none focus:bg-white/[0.04] focus:border-white/30 focus:shadow-[0_0_20px_rgba(255,255,255,0.05)]"
+              placeholder="name@example.com"
+            />
           </div>
-        </>
-      )}
+
+          {/* Message Textarea Box */}
+          <div className="mb-6">
+            <label
+              htmlFor="message"
+              className="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2 font-sans"
+            >
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              className="w-full p-3.5 bg-white/[0.02] border border-white/10 rounded-xl text-white placeholder-zinc-500 font-sans text-sm tracking-wide transition-all duration-300 focus:outline-none focus:bg-white/[0.04] focus:border-white/30 focus:shadow-[0_0_20px_rgba(255,255,255,0.05)] resize-none"
+              rows="4"
+              placeholder="Tell me about your project..."
+            />
+          </div>
+
+          {/* Premium Silver Solid Metal Button */}
+          <button
+            type="submit"
+            className="w-full py-4 px-6 rounded-xl bg-gradient-to-b from-white via-zinc-200 to-zinc-400 hover:from-zinc-100 hover:to-zinc-300 text-black font-bold text-sm tracking-wide uppercase transition-all duration-300 shadow-[0_4px_20px_rgba(255,255,255,0.15)] active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled={loading}
+          >
+            {loading ? "Sending..." : "Send Message"}
+          </button>
+        </form>
+      </div>
     </section>
   );
 };
