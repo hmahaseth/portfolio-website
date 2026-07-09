@@ -100,7 +100,7 @@ const HeroSection = () => {
             {/* iOS Sleek Button Controls */}
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto items-center justify-center md:justify-start">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/royal-empire/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto text-center"
@@ -114,7 +114,7 @@ const HeroSection = () => {
               </a>
               
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/himanshumahaseth_/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto text-center"
