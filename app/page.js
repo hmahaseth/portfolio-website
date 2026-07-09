@@ -70,7 +70,7 @@ export default function Home() {
   }
 
   return (
-    <main className="relative flex min-h-screen flex-col bg-zinc-950 overflow-x-hidden text-white antialiased">
+    <main className="relative flex min-h-screen flex-col bg-zinc-950 text-white antialiased">
       
       {/* 🌌 NEXT.JS SMART DEVICE-ADAPTIVE ACCELERATED BACKGROUND LAYER */}
       <div className="fixed inset-0 z-0 pointer-events-none select-none w-full h-full">

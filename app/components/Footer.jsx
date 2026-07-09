@@ -102,7 +102,7 @@ const Footer = () => {
           {/* Right Side Social Link Cluster */}
           <div className="flex items-center justify-center flex-wrap gap-4">
             <a
-              href="https://github.com"
+              href="https://github.com/hmahaseth"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
@@ -120,7 +120,7 @@ const Footer = () => {
               <i className="fab fa-twitter"></i>
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/royal-empire/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -129,7 +129,7 @@ const Footer = () => {
               <i className="fab fa-linkedin-in"></i>
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/himanshumahaseth_/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -138,7 +138,7 @@ const Footer = () => {
               <i className="fab fa-instagram"></i>
             </a>
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/himanshumahaseth8"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
