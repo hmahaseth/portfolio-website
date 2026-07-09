@@ -25,17 +25,16 @@ export default function Home() {
   const [isSiteSubmitted, setIsSiteSubmitted] = useState(false);
 
   useEffect(() => {
-    // FIXED: Added a 100ms timeout delay to prevent animation & background rendering collision lag
     const timer = setTimeout(() => {
       AOS.init({
-        duration: 800, // Faster duration uses less processing frames on initial load
-        once: true,    // Prevents animations from constantly refiring when scrolling up and down
+        duration: 800,  // Stays fast to protect your scrolling frame rate
+        once: false,    // Set to false so animations fire every time they enter the screen
+        mirror: true,   // Animates elements out smoothly when scrolling past them
       });
     }, 100);
 
-    // Clean up the timer if the component unmounts
     return () => clearTimeout(timer);
-  }, []);
+  }, []); // FIXED: Removed the secondary broken duplicate hooks below this line
 
   return (
     <main className="relative flex min-h-screen flex-col bg-zinc-950 overflow-x-hidden text-white antialiased">
@@ -53,13 +52,13 @@ export default function Home() {
           className="object-cover object-center opacity-50 brightness-[0.50] contrast-100 transition-opacity duration-500"
         />
         {/* Deep ambient dark gradient protection overlay ensuring code elements stay perfectly legible */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-zinc-850" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-zinc-950" />
       </div>
 
       {/* 🛡️ CONDITION WRAPPER: If submitted, wipes everything and shows only the Thanks Card */}
       {isSiteSubmitted ? (
         <div className="relative z-10 flex flex-col items-center justify-center min-h-screen w-full px-4">
-          {/* 🚀 FIXED: Passed the state reset function to allow returning to the main page */}
+          {/* Passed the state reset function to allow returning to the main page */}
           <Thanks onReset={() => setIsSiteSubmitted(false)} />
         </div>
       ) : (
