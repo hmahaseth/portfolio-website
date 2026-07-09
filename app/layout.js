@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <head>
         {/* Primary Meta Tags */}
         <meta charSet="UTF-8" />
@@ -49,7 +49,8 @@ export default function RootLayout({ children }) {
         {/* Favicon and Apple Touch Icon */}
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/site.webmanifest" />
+        
+        {/* 🚀 FIXED: Removed the missing site.webmanifest reference link that caused console 404 errors */}
 
         {/* Canonical URL */}
         <link rel="canonical" href="https://himanshumahaseth.com.np" />
