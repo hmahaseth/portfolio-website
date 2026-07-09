@@ -23,18 +23,51 @@ import bgImage from "../public/images/bg-texture.png";
 export default function Home() {
   // GLOBAL STATE: Tracks if the form has been sent to update screen visibility conditions
   const [isSiteSubmitted, setIsSiteSubmitted] = useState(false);
+  
+  // ⏱️ NEW LOAD STATE: Holds back rendering until the optimization timer finishes
+  const [isPageReady, setIsPageReady] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    // 🚀 3-SECOND TIMER GATING WINDOW: Holds layout rendering to let animations/images spin up cleanly
+    const loadTimer = setTimeout(() => {
+      setIsPageReady(true);
+    }, 3000);
+
+    const aosTimer = setTimeout(() => {
       AOS.init({
         duration: 800,  // Stays fast to protect your scrolling frame rate
         once: false,    // Set to false so animations fire every time they enter the screen
         mirror: true,   // Animates elements out smoothly when scrolling past them
       });
-    }, 100);
+    }, 3100);
 
-    return () => clearTimeout(timer);
-  }, []); // FIXED: Removed the secondary broken duplicate hooks below this line
+    return () => {
+      clearTimeout(loadTimer);
+      clearTimeout(aosTimer);
+    };
+  }, []);
+
+  // 🎬 LOADER RETURN TRIGGER: Displays your local GIF asset during initial loading intervals
+  if (!isPageReady) {
+    return (
+      <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-zinc-950 select-none pointer-events-none w-full h-full">
+        {/* FIXED: Increased container dimensions for a larger, high-impact visibility state */}
+        <div className="relative w-40 h-40 sm:w-56 sm:h-56">
+          <Image
+            src="/images/loading.gif" // 🚀 Verified asset filename pointer
+            alt="Optimizing Experience..."
+            fill
+            priority
+            unoptimized // Crucial: prevents Next.js from breaking the GIF cycle
+            className="object-contain"
+          />
+        </div>
+        <p className="font-mono text-[11px] tracking-[0.35em] text-zinc-500 uppercase mt-6 animate-pulse">
+          Optimizing Experience
+        </p>
+      </div>
+    );
+  }
 
   return (
     <main className="relative flex min-h-screen flex-col bg-zinc-950 overflow-x-hidden text-white antialiased">
