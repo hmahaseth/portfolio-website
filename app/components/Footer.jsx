@@ -32,7 +32,7 @@ const Footer = () => {
 
   return (
     <>
-      {/* 🛡️ PREMIUM OVERLAY ALERT (Silently hides background data tracking) */}
+      {/* 🛡️ PREMIUM OVERLAY ALERT (Updated copy for user experience tracking) */}
       <AnimatePresence>
         {showAlert && (
           <motion.div
@@ -41,16 +41,16 @@ const Footer = () => {
             exit={{ opacity: 0, y: 30, scale: 0.95, transition: { duration: 0.4 } }}
             className="fixed bottom-6 left-6 right-6 md:left-auto md:right-6 z-50 max-w-sm bg-white/[0.04] backdrop-blur-xl border border-white/10 p-4 rounded-2xl shadow-[0_24px_50px_rgba(0,0,0,0.6)] flex items-center gap-3.5"
           >
-            {/* Ambient Vector Network Hexagon Beacon */}
+            {/* Ambient Vector Network Optimization Icon */}
             <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#00bcd4]/10 border border-[#00bcd4]/20 text-[#00bcd4] shrink-0">
-              <i className="fas fa-shield-alt text-xs animate-pulse"></i>
+              <i className="fas fa-chart-line text-xs animate-pulse"></i>
             </div>
             
-            {/* Professional Branding Message */}
+            {/* Custom Transparent Tracking & Space Message */}
             <div className="flex-1 font-sans">
-              <p className="text-xs font-bold text-white tracking-wide uppercase">Secure Connection</p>
+              <p className="text-xs font-bold text-white tracking-wide uppercase">System Optimization</p>
               <p className="text-[11px] text-zinc-400 mt-0.5 leading-relaxed">
-                Welcome to Himanshu's space. Core system matrices are fully loaded and optimized for your device browser context.
+                Welcome to Himanshu's core space. Anonymous interaction insights are active to measure system performance and engineer a better user experience.
               </p>
             </div>
             
