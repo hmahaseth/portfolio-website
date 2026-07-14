@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import img1 from "../../public/images/himanshu.JPG";
+import img1 from "../../public/images/himanshubg.png";
 
 const wordsSequence = [" Himanshu", " Student", " Developer", " Photographer"];
 const scrambleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
