@@ -58,7 +58,7 @@ const TAB_DATA = [
           <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-[#00bcd4]/10 border border-[#00bcd4]/20 text-[#00bcd4] shrink-0">
             <i className="fas fa-university text-xs"></i>
           </div>
-          <span className="tracking-wide">OngoingEngineering</span>
+          <span className="tracking-wide">Ongoing Engineering</span>
         </li>
       </ul>
     ),
